@@ -4,8 +4,11 @@
 # ==============================================================================
 
 backend:
-  name: git-gateway
+  name: github
+  repo: wilkorkonveksi/wilkor-website
   branch: main
+  base_url: https://decap-oauth.netlify.app
+  auth_endpoint: auth
 
 # Aktifkan proxy lokal untuk pengembangan di localhost (npx decap-server)
 local_backend: true
