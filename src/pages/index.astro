@@ -1,0 +1,437 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import PartnersMarquee from '../components/PartnersMarquee.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FAQSection, { faqs } from '../components/FAQSection.astro';
+import { services } from '../data/services';
+import { portfolioItems } from '../data/portfolio';
+import { siteConfig } from '../data/siteConfig';
+
+// Featured portfolio items for homepage preview
+const featuredPortfolio = portfolioItems.filter((item) => item.featured).slice(0, 6);
+
+// Structured Data for FAQPage Schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
+
+const waOrderUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
+  'Halo Tim Wilcore, saya ingin konsultasi pemesanan seragam dan penawaran harga.'
+)}`;
+---
+
+<BaseLayout
+  title="Jasa Konveksi & Vendor Seragam Terpercaya Kualitas Garment | Wilcore"
+  description="Wilcore adalah pabrik konveksi dan vendor seragam B2B terkemuka. Spesialis kemeja PDH/PDL, polo shirt, kaos event, jaket, dan wearpack safety berstandar garment."
+  schema={faqSchema}
+>
+  <!-- 1. Hero Section -->
+  <Hero />
+
+  <!-- 2. Keunggulan Wilcore (Why Choose Us) -->
+  <section class="py-16 sm:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-50 text-orange-700 uppercase tracking-wider">
+          Standar Manufaktur Industri
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Mengapa Perusahaan &amp; Instansi Memilih Wilcore?
+        </h2>
+        <p class="text-base text-slate-600">
+          Kombinasi teknologi mesin garment modern, kedisiplinan kontrol kualitas, dan kepastian jadwal produksi yang dapat diandalkan untuk pengadaan korporat Anda.
+        </p>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Feature 1 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-orange-300 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-orange-600 text-white flex items-center justify-center shadow-md mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+            Quality Control 3 Tahap
+          </h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            Pemeriksaan menyeluruh mulai dari bahan mentah, presisi pola &amp; jahitan stik ganda, hingga proses steam pressing dan packaging steril.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-orange-300 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-md mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+            Jaminan Tepat Waktu (SLA)
+          </h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            Komitmen pengiriman tepat waktu dengan kepastian jadwal kerja (timeline produksi) tertulis. Skor on-time delivery kami mencapai 99.4%.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-orange-300 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+            100% Bahan Asli &amp; Teruji
+          </h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            Bermitra langsung dengan produsen tekstil resmi (Nagata, American, Lacoste CVC, Combed Reaktif). Tidak ada bahan oplosan atau susut drastis.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-orange-300 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-md mb-5 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+            Faktur Pajak &amp; Legalitas PKP
+          </h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            Wilcore berbadan hukum resmi PT dengan status PKP. Siap memfasilitasi kebutuhan administrasi tender, e-Faktur, dan SPK pengadaan B2B.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. Our Partners Auto-Scrolling 2-Row Marquee -->
+  <PartnersMarquee />
+
+  <!-- 4. Layanan & Produk Utama -->
+  <section class="py-16 sm:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200">
+        <div class="space-y-3 max-w-2xl">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-800 uppercase tracking-wider">
+            Katalog Produk Konveksi
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Layanan Manufaktur Pakaian Unggulan
+          </h2>
+          <p class="text-base text-slate-600">
+            Pilihan produk seragam kustom lengkap dengan spesifikasi material berkualitas, jahitan stik ganda, dan bordir Barudan presisi tinggi.
+          </p>
+        </div>
+        <div class="shrink-0">
+          <a
+            href="/layanan"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-all"
+          >
+            <span>Lihat Semua Spesifikasi Layanan</span>
+            <svg class="w-4 h-4 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          services.map((item) => (
+            <ServiceCard service={item} />
+          ))
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. Alur Pemesanan (How to Order - 4 Langkah) -->
+  <section class="py-16 sm:py-24 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 uppercase tracking-wider border border-orange-500/30">
+          Alur Kerja Transparan
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          4 Langkah Mudah Memulai Produksi di Wilcore
+        </h2>
+        <p class="text-base text-slate-300">
+          Proses pemesanan seragam dirancang terstruktur dan terukur agar klien korporat dapat memantau setiap progres tanpa khawatir.
+        </p>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="relative bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-600 font-black text-lg flex items-center justify-center text-white">
+            1
+          </div>
+          <h3 class="text-xl font-bold text-white">Konsultasi &amp; Bahan</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Diskusikan kebutuhan seragam, jenis kain (Drill, Lacoste, Combed), referensi warna, serta jumlah pesanan dengan konsultan kami.
+          </p>
+          <div class="pt-2 text-xs text-orange-400 font-semibold">
+            Estimasi: 1 Hari
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-600 font-black text-lg flex items-center justify-center text-white">
+            2
+          </div>
+          <h3 class="text-xl font-bold text-white">Mockup &amp; DP</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Tim desainer kami menyiapkan lembar kerja mockup visual 3D &amp; sample proofing fisik. Penerbitan invoice resmi dan pembayaran DP (50%).
+          </p>
+          <div class="pt-2 text-xs text-orange-400 font-semibold">
+            Estimasi: 1 - 2 Hari
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-600 font-black text-lg flex items-center justify-center text-white">
+            3
+          </div>
+          <h3 class="text-xl font-bold text-white">Produksi &amp; QC</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Proses pemotongan kain, bordir komputer Barudan, jahit standar garment, steam press panas, dan inspeksi QC 3 tahap.
+          </p>
+          <div class="pt-2 text-xs text-orange-400 font-semibold">
+            Estimasi: 7 - 14 Hari
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative bg-slate-800/80 p-6 rounded-2xl border border-slate-700/80 space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-orange-600 font-black text-lg flex items-center justify-center text-white">
+            4
+          </div>
+          <h3 class="text-xl font-bold text-white">Pelunasan &amp; Kirim</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Pengecekan foto/video barang jadi, pelunasan sisa tagihan, dan pengiriman aman via kargo darat/udara dengan resi tracking terintegrasi.
+          </p>
+          <div class="pt-2 text-xs text-orange-400 font-semibold">
+            Ekspedisi Kargo Nasional
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. Cuplikan Portofolio (Preview Portofolio) -->
+  <section class="py-16 sm:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200">
+        <div class="space-y-3 max-w-2xl">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-800 uppercase tracking-wider">
+            Bukti Hasil Kerja Nyata
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Portofolio Produksi Pilihan
+          </h2>
+          <p class="text-base text-slate-600">
+            Berikut adalah cuplikan hasil produksi pakaian seragam untuk klien korporasi, instansi BUMN, institusi pendidikan, dan komunitas di Indonesia.
+          </p>
+        </div>
+        <div class="shrink-0">
+          <a
+            href="/portofolio"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-md transition-all"
+          >
+            <span>Lihat Semua Galeri Portofolio</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          featuredPortfolio.map((item) => (
+            <div class="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-md group">
+              <div class="aspect-[16/10] overflow-hidden bg-slate-950">
+                <img
+                  src={item.image}
+                  alt={`${item.title} - Portofolio Wilcore Garment`}
+                  width="600"
+                  height="400"
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="p-6 space-y-3 text-white">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="text-orange-400 font-bold uppercase tracking-wider">{item.categoryLabel}</span>
+                  <span class="text-slate-400">{item.quantity}</span>
+                </div>
+                <h3 class="text-lg font-bold group-hover:text-orange-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                  {item.description}
+                </p>
+                <div class="pt-2 text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-800">
+                  <span>Kain: <strong class="text-slate-300 font-semibold">{item.material}</strong></span>
+                  <span>Klien: <strong class="text-slate-300 font-semibold">{item.client}</strong></span>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. Testimoni Klien B2B -->
+  <section class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 uppercase tracking-wider">
+          Kepuasan Klien Korporat
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Apa Kata Mereka Tentang Kualitas Wilcore?
+        </h2>
+        <p class="text-base text-slate-600">
+          Ulasan langsung dari perwakilan divisi Procurement, HRD, dan panitia event yang mempercayakan kebutuhan pakaian seragam mereka kepada pabrik Wilcore.
+        </p>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testi 1 -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p class="text-slate-700 text-sm italic leading-relaxed">
+              "Kami memesan 1.250 pcs kemeja PDH Nagata Drill untuk cabang wilayah Jawa Barat. Jahitan rapi standar garment, bordir logo bank sangat tajam dan tidak mengkerut sama sekali. Pengiriman tepat sebelum tanggal peluncuran seragam baru."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <p class="font-bold text-slate-900 text-sm">Bambang Trianto</p>
+            <p class="text-xs text-slate-500">Procurement Officer • Perbankan BUMN Regional</p>
+          </div>
+        </div>
+
+        <!-- Testi 2 -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p class="text-slate-700 text-sm italic leading-relaxed">
+              "Paling apresiasi untuk Wearpack Tambang K3 dengan pita scotchlite 3M. Material kuat, jahitan bartack di sudut kantong sangat kokoh saat dipakai pekerja di area site. Legalitas faktur pajak juga sangat lengkap dan rapi."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <p class="font-bold text-slate-900 text-sm">Hendro Wicaksono, S.T.</p>
+            <p class="text-xs text-slate-500">HSE &amp; General Affair Manager • Kontraktor Tambang</p>
+          </div>
+        </div>
+
+        <!-- Testi 3 -->
+        <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <p class="text-slate-700 text-sm italic leading-relaxed">
+              "Polo gathering 2.400 pcs bahan Lacoste CVC hasilnya adem banget di cuaca terik. Kerah rajutnya kokoh tidak melintir walau dicuci berkali-kali. Konsultan sales Wilcore sangat responsif mendampingi dari tahap sampel."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <p class="font-bold text-slate-900 text-sm">Dina Maharani</p>
+            <p class="text-xs text-slate-500">Ketua Panitia Family Gathering • BUMN Energi &amp; Logistik</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. FAQ Section Component -->
+  <FAQSection />
+
+  <!-- 8. Final High-Conversion WhatsApp CTA Section -->
+  <section class="py-16 sm:py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-600/20 text-orange-400 text-xs font-bold uppercase tracking-wider border border-orange-500/30">
+        Konsultasi &amp; Sampel Gratis
+      </span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        Siap Memulai Pengadaan Seragam Berkualitas Tinggi untuk Tim Anda?
+      </h2>
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Dapatkan simulasi estimasi harga terbaik, mockup visual 3D gratis, serta pengiriman sampel kain fisik langsung ke kantor Anda.
+      </p>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- Direct WhatsApp CTA -->
+        <a
+          href={waOrderUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-bold bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white shadow-xl shadow-emerald-950/60 transition-all duration-200 transform hover:-translate-y-0.5"
+        >
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+          </svg>
+          <span>Chat WhatsApp Sekarang</span>
+        </a>
+
+        <!-- Form Request Quotation Button -->
+        <a
+          href="/kontak"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-orange-600 hover:bg-orange-500 active:bg-orange-700 text-white shadow-xl shadow-orange-950/60 transition-all duration-200"
+        >
+          <span>Formulir Penawaran Harga</span>
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="text-xs text-slate-400 pt-2">
+        Respon kilat di jam kerja • Konsultasi teknis tanpa biaya • Pengiriman seluruh Indonesia
+      </p>
+    </div>
+  </section>
+</BaseLayout>

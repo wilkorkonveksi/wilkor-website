@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="blazerGrad" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="blazerFabric" x1="200" y1="80" x2="400" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7C2D12"/>
+      <stop offset="1" stop-color="#431407"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#blazerGrad)"/>
+  <path d="M0 50h600M0 100h600M0 150h600M0 200h600M0 250h600M0 300h600M0 350h600" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <path d="M50 0v400M100 0v400M150 0v400M200 0v400M250 0v400M300 0v400M350 0v400M400 0v400M450 0v400M500 0v400M550 0v400" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  
+  <!-- Blazer / Jas Almamater Shape -->
+  <g transform="translate(60, 25)">
+    <path d="M160 80 L240 80 L320 80 L395 140 L350 185 L315 135 L315 320 L165 320 L165 135 L130 185 L85 140 Z" fill="url(#blazerFabric)" stroke="#F59E0B" stroke-width="2"/>
+    <!-- Lapels -->
+    <path d="M205 80 L240 180 L195 135 L220 80 Z" fill="#9A3412" stroke="#F59E0B" stroke-width="1.5"/>
+    <path d="M275 80 L240 180 L285 135 L260 80 Z" fill="#9A3412" stroke="#F59E0B" stroke-width="1.5"/>
+    <!-- Tie / Shirt peek -->
+    <path d="M225 80 L255 80 L240 140 Z" fill="#FFFFFF"/>
+    <path d="M236 100 L244 100 L242 165 L238 165 Z" fill="#B91C1C"/>
+    <!-- Gold Buttons -->
+    <circle cx="240" cy="210" r="5" fill="#FBBF24" stroke="#78350F" stroke-width="1"/>
+    <circle cx="240" cy="250" r="5" fill="#FBBF24" stroke="#78350F" stroke-width="1"/>
+    <!-- Flap Pockets -->
+    <rect x="180" y="240" width="38" height="10" rx="2" fill="#78350F" stroke="#F59E0B" stroke-width="1"/>
+    <rect x="262" y="240" width="38" height="10" rx="2" fill="#78350F" stroke="#F59E0B" stroke-width="1"/>
+    <!-- Crest/Logo on Chest -->
+    <circle cx="200" cy="155" r="9" fill="#F59E0B"/>
+    <circle cx="200" cy="155" r="7" fill="#7C2D12"/>
+    <path d="M200 151 L203 158 L197 158 Z" fill="#F59E0B"/>
+  </g>
+  <g transform="translate(420, 70)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F8FAFC" font-family="system-ui" font-size="13" font-weight="bold">Hisofy / Nagata Drill</text>
+  </g>
+  <g transform="translate(420, 130)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F59E0B" font-family="system-ui" font-size="13" font-weight="bold">Kancing Logam Emas</text>
+  </g>
+  <g transform="translate(420, 190)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#38BDF8" font-family="system-ui" font-size="13" font-weight="bold">Full Furing Satin</text>
+  </g>
+  <text x="40" y="360" fill="#94A3B8" font-family="system-ui" font-size="14" font-weight="600">WILCORE GARMENT • JAS ALMAMATER &amp; BLAZER INSTANSI</text>
+</svg>

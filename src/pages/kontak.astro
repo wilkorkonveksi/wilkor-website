@@ -1,0 +1,333 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/siteConfig';
+import { services } from '../data/services';
+---
+
+<BaseLayout
+  title="Kontak & Form Request Penawaran Harga Seragam | Wilcore"
+  description="Hubungi pabrik konveksi Wilcore. Isi form request quotation seragam (Kemeja PDH, Polo, Kaos, Jaket, Wearpack) langsung terhubung ke WhatsApp kami."
+>
+  <!-- Header Banner -->
+  <section class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider border border-orange-500/30">
+        Respon Kilat WhatsApp &amp; Email
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+        Hubungi Wilcore &amp; Request Penawaran Harga Cepat
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        Gunakan formulir kalkulator cepat di bawah ini untuk mendapatkan simulasi penawaran harga, rekomendasi bahan kain, dan estimasi waktu pengerjaan seragam tim Anda.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Form Request Quotation (Col 7) -->
+        <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <div class="border-b border-slate-100 pb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-orange-600">Formulir Langsung Terhubung ke WhatsApp</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 mt-1">
+              Simulasi &amp; Request Penawaran Seragam
+            </h2>
+            <p class="text-xs text-slate-500 mt-1">
+              Isi parameter kebutuhan di bawah, sistem kami akan menyusun pesan rapi untuk langsung dikirim ke WhatsApp sales Wilcore.
+            </p>
+          </div>
+
+          <form id="quotation-form" class="space-y-4">
+            <!-- Row: Name & Company -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="client-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Nama Lengkap *
+                </label>
+                <input
+                  type="text"
+                  id="client-name"
+                  name="client-name"
+                  required
+                  placeholder="Contoh: Rian Anggara"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                />
+              </div>
+              <div>
+                <label for="company-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Nama Perusahaan / Instansi *
+                </label>
+                <input
+                  type="text"
+                  id="company-name"
+                  name="company-name"
+                  required
+                  placeholder="Contoh: PT Sumber Energi Makmur"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+
+            <!-- Row: Phone & Product -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="client-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Nomor WhatsApp Anda *
+                </label>
+                <input
+                  type="tel"
+                  id="client-phone"
+                  name="client-phone"
+                  required
+                  placeholder="Contoh: 08123456789"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                />
+              </div>
+              <div>
+                <label for="product-type" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Pilih Jenis Produk *
+                </label>
+                <select
+                  id="product-type"
+                  name="product-type"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition bg-white"
+                >
+                  <option value="" disabled selected>-- Pilih Jenis Seragam --</option>
+                  {
+                    services.map((item) => (
+                      <option value={item.name}>{item.name}</option>
+                    ))
+                  }
+                  <option value="Model Kustom Lainnya">Model Kustom Lainnya</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Row: Material & Quantity -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="fabric-preference" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Pilihan Bahan Kain (Opsional)
+                </label>
+                <select
+                  id="fabric-preference"
+                  name="fabric-preference"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition bg-white"
+                >
+                  <option value="Belum Tahu / Minta Rekomendasi Tim Wilcore">Belum Tahu / Minta Rekomendasi</option>
+                  <option value="Nagata Drill 1919 (Kemeja)">Nagata Drill 1919 (Kemeja/PDH)</option>
+                  <option value="American Drill 1919 (Kemeja/Wearpack)">American Drill 1919</option>
+                  <option value="Taipan Tropical (Kemeja Eksekutif)">Taipan Tropical</option>
+                  <option value="Lacoste CVC 24s (Polo Shirt)">Lacoste CVC 24s (Polo Shirt)</option>
+                  <option value="Lacoste Pique Cotton (Polo Premium)">Lacoste Pique Cotton 100%</option>
+                  <option value="Cotton Combed 30s (Kaos Adem)">Cotton Combed 30s (Kaos)</option>
+                  <option value="Cotton Combed 24s (Kaos Tebal)">Cotton Combed 24s (Kaos)</option>
+                  <option value="Cotton Bamboo (Kaos Premium)">Cotton Bamboo Antibakteri</option>
+                  <option value="Taslan Milky / ZN (Jaket Windproof)">Taslan Milky / ZN (Jaket)</option>
+                  <option value="Cotton Fleece (Hoodie / Jaket Hangat)">Cotton Fleece (Hoodie/Jaket)</option>
+                  <option value="Ripstop Anti-Sobek (PDL / Safety)">Ripstop Anti-Sobek</option>
+                </select>
+              </div>
+              <div>
+                <label for="order-quantity" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  Estimasi Jumlah Pesanan (Pcs) *
+                </label>
+                <input
+                  type="number"
+                  id="order-quantity"
+                  name="order-quantity"
+                  min="24"
+                  required
+                  placeholder="Min. 24 pcs (Contoh: 100)"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+
+            <!-- Notes Textarea -->
+            <div>
+              <label for="order-notes" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                Catatan Desain &amp; Kebutuhan Tambahan (Opsional)
+              </label>
+              <textarea
+                id="order-notes"
+                name="order-notes"
+                rows="3"
+                placeholder="Contoh: Bordir logo di dada kiri, lengan kanan bendera merah putih, deadline acara tanggal 15 bulan depan..."
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button
+                type="submit"
+                class="w-full py-4 px-6 rounded-xl text-base font-bold bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white shadow-lg shadow-emerald-950/20 transition-all flex items-center justify-center gap-3 cursor-pointer"
+              >
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+                </svg>
+                <span>Kirim via WhatsApp (Otomatis Terformat)</span>
+              </button>
+              <p class="text-center text-[11px] text-slate-400 mt-2">
+                Data Anda aman dan langsung diteruskan ke WhatsApp representatif resmi Wilcore tanpa spam.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Contact Information & Map Facade (Col 5) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Contact Card -->
+          <div class="bg-slate-900 text-white p-8 rounded-3xl border border-slate-800 shadow-md space-y-6">
+            <h2 class="text-xl font-bold text-white border-b border-slate-800 pb-3">
+              Informasi Kontak Resmi
+            </h2>
+
+            <div class="space-y-4 text-sm text-slate-300">
+              <!-- Address -->
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-orange-600/20 text-orange-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-white text-xs uppercase tracking-wider text-slate-400">Workshop &amp; Kantor</p>
+                  <p class="mt-0.5">{siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.province} {siteConfig.address.postalCode}</p>
+                </div>
+              </div>
+
+              <!-- WhatsApp -->
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-white text-xs uppercase tracking-wider text-slate-400">WhatsApp Sales &amp; CS</p>
+                  <a href={`https://wa.me/${siteConfig.whatsapp.number}`} class="mt-0.5 inline-block text-emerald-400 font-bold hover:underline">
+                    {siteConfig.whatsapp.display}
+                  </a>
+                  <p class="text-[11px] text-slate-400">Balasan instan di jam kerja</p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-lg bg-sky-600/20 text-sky-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-white text-xs uppercase tracking-wider text-slate-400">Email Resmi</p>
+                  <a href={`mailto:${siteConfig.email}`} class="mt-0.5 inline-block text-sky-400 hover:underline">
+                    {siteConfig.email}
+                  </a>
+                </div>
+              </div>
+
+              <!-- Operating Hours -->
+              <div class="pt-3 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+                <p><strong class="text-white">Operasional Produksi:</strong></p>
+                <p>{siteConfig.businessHours.workdays}</p>
+                <p>{siteConfig.businessHours.weekend}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Facade (Ultra-lightweight without heavy iframe) -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm">Peta Lokasi Fasilitas Pabrik</h3>
+              <span class="text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full">
+                Kawasan Industri
+              </span>
+            </div>
+
+            <!-- Stylized lightweight SVG Map Mockup -->
+            <div class="relative w-full aspect-[16/9] rounded-2xl bg-slate-900 overflow-hidden flex items-center justify-center p-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full opacity-60" viewBox="0 0 400 220" fill="none">
+                <path d="M20 40h360M20 90h360M20 140h360M20 190h360" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M70 20v180M150 20v180M230 20v180M310 20v180" stroke="#334155" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <path d="M40 180 L180 70 L340 130" stroke="#0284C7" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="180" cy="70" r="14" fill="#EA580C" opacity="0.3"/>
+                <circle cx="180" cy="70" r="8" fill="#EA580C"/>
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4 bg-slate-950/40 backdrop-blur-2xs">
+                <div class="w-10 h-10 rounded-full bg-orange-600 text-white flex items-center justify-center shadow-lg mb-2">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <p class="text-xs font-bold text-white">Workshop Wilcore Garment</p>
+                <p class="text-[11px] text-slate-300">Bandung - Jawa Barat, Indonesia</p>
+              </div>
+            </div>
+
+            <!-- Open in Maps Button -->
+            <a
+              href={siteConfig.address.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-white transition-colors"
+            >
+              <span>Buka Petunjuk Arah di Google Maps</span>
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline define:vars={{ waNumber: siteConfig.whatsapp.number }}>
+  // Vanilla JS WhatsApp Message Generator (Zero Bloatware)
+  (function () {
+    const form = document.getElementById('quotation-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('client-name').value.trim();
+      const company = document.getElementById('company-name').value.trim();
+      const phone = document.getElementById('client-phone').value.trim();
+      const product = document.getElementById('product-type').value;
+      const fabric = document.getElementById('fabric-preference').value;
+      const qty = document.getElementById('order-quantity').value.trim();
+      const notes = document.getElementById('order-notes').value.trim();
+
+      const message = 
+`*REQUEST PENAWARAN HARGA SERAGAM - WILCORE.COM*
+----------------------------------------
+*Nama:* ${name}
+*Instansi/Perusahaan:* ${company}
+*No. WhatsApp:* ${phone}
+*Jenis Produk:* ${product}
+*Pilihan Bahan:* ${fabric}
+*Jumlah Pesanan:* ${qty} pcs
+*Catatan Tambahan:* ${notes || '-'}
+----------------------------------------
+Halo Tim Sales Wilcore, mohon informasi estimasi penawaran harga, timeline produksi, serta prosedur sample proofing. Terima kasih!`;
+
+      const encodedMessage = encodeURIComponent(message);
+      const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    });
+  })();
+</script>

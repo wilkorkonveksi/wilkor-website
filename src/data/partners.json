@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "title": "Bank Mandiri (Persero)",
+      "slug": "bank-mandiri",
+      "sector": "Perbankan BUMN",
+      "logo": "/images/partners/mandiri.svg"
+    },
+    {
+      "title": "Pertamina Patra Niaga",
+      "slug": "pertamina",
+      "sector": "Energi & Logistik",
+      "logo": "/images/partners/pertamina.svg"
+    },
+    {
+      "title": "Telkom Indonesia",
+      "slug": "telkom-indonesia",
+      "sector": "Telekomunikasi",
+      "logo": "/images/partners/telkom.svg"
+    },
+    {
+      "title": "PT PLN (Persero)",
+      "slug": "pt-pln",
+      "sector": "Ketenagalistrikan BUMN",
+      "logo": "/images/partners/pln.svg"
+    },
+    {
+      "title": "Astra Honda Motor",
+      "slug": "astra-motor",
+      "sector": "Manufaktur Otomotif",
+      "logo": "/images/partners/astra.svg"
+    },
+    {
+      "title": "Adaro Energy Mining",
+      "slug": "adaro-mining",
+      "sector": "Pertambangan K3",
+      "logo": "/images/partners/adaro.svg"
+    },
+    {
+      "title": "Tokopedia / GoTo",
+      "slug": "tokopedia",
+      "sector": "Teknologi E-Commerce",
+      "logo": "/images/partners/tokopedia.svg"
+    },
+    {
+      "title": "Universitas Indonesia",
+      "slug": "universitas-indonesia",
+      "sector": "Pendidikan Tinggi",
+      "logo": "/images/partners/ui.svg"
+    },
+    {
+      "title": "KAI Logistics",
+      "slug": "kai-logistics",
+      "sector": "Logistik & Transportasi",
+      "logo": "/images/partners/kai.svg"
+    },
+    {
+      "title": "Indofood CBP Sukses Makmur",
+      "slug": "indofood-cbp",
+      "sector": "FMCG Food & Beverage",
+      "logo": "/images/partners/indofood.svg"
+    },
+    {
+      "title": "TransMedia Corp",
+      "slug": "transmedia",
+      "sector": "Penyiaran & Media TV",
+      "logo": "/images/partners/transmedia.svg"
+    },
+    {
+      "title": "Komatsu Indonesia",
+      "slug": "komatsu-indonesia",
+      "sector": "Alat Berat & Mesin",
+      "logo": "/images/partners/komatsu.svg"
+    },
+    {
+      "title": "Unilever Indonesia",
+      "slug": "unilever-indonesia",
+      "sector": "Consumer Goods B2B",
+      "logo": "/images/partners/unilever.svg"
+    },
+    {
+      "title": "PT Vale Indonesia",
+      "slug": "pt-vale-indonesia",
+      "sector": "Pertambangan Nikel",
+      "logo": "/images/partners/vale.svg"
+    },
+    {
+      "title": "SIG Semen Indonesia Group",
+      "slug": "semen-indonesia",
+      "sector": "Material Konstruksi BUMN",
+      "logo": "/images/partners/semen-indonesia.svg"
+    },
+    {
+      "title": "GMF AeroAsia",
+      "slug": "gmf-aeroasia",
+      "sector": "Aviasi & Pemeliharaan Pesawat",
+      "logo": "/images/partners/gmf.svg"
+    }
+  ]
+}

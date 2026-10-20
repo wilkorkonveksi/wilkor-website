@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="tshirtGrad" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="tshirtFab" x1="200" y1="80" x2="400" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#334155"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#tshirtGrad)"/>
+  <path d="M0 50h600M0 100h600M0 150h600M0 200h600M0 250h600M0 300h600M0 350h600" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <path d="M50 0v400M100 0v400M150 0v400M200 0v400M250 0v400M300 0v400M350 0v400M400 0v400M450 0v400M500 0v400M550 0v400" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  
+  <!-- T-shirt Shape -->
+  <g transform="translate(60, 25)">
+    <path d="M165 90 C200 115 280 115 315 90 L395 135 L360 180 L320 145 L320 325 L160 325 L160 145 L120 180 L85 135 Z" fill="url(#tshirtFab)" stroke="#94A3B8" stroke-width="2"/>
+    <!-- Collar Rib -->
+    <path d="M165 90 C200 120 280 120 315 90 C290 85 190 85 165 90 Z" fill="#0F172A" stroke="#EA580C" stroke-width="2"/>
+    <!-- Screen Print Artwork Graphics on Chest -->
+    <rect x="200" y="160" width="80" height="70" rx="6" fill="#EA580C" opacity="0.9"/>
+    <path d="M215 200 L235 175 L255 195 L265 185" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="255" cy="175" r="4" fill="#FEF08A"/>
+    <!-- Rantai Shoulder Stitch indicator -->
+    <path d="M165 90 L120 120" stroke="#F97316" stroke-width="2" stroke-dasharray="2 2"/>
+    <path d="M315 90 L360 120" stroke="#F97316" stroke-width="2" stroke-dasharray="2 2"/>
+  </g>
+  <g transform="translate(420, 70)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F8FAFC" font-family="system-ui" font-size="13" font-weight="bold">Cotton Combed 30s</text>
+  </g>
+  <g transform="translate(420, 130)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F97316" font-family="system-ui" font-size="13" font-weight="bold">Sablon Plastisol / DTF</text>
+  </g>
+  <g transform="translate(420, 190)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#10B981" font-family="system-ui" font-size="13" font-weight="bold">Jahitan Rantai Distro</text>
+  </g>
+  <text x="40" y="360" fill="#94A3B8" font-family="system-ui" font-size="14" font-weight="600">WILCORE GARMENT • KAOS EVENT GATHERING &amp; SABLON</text>
+</svg>

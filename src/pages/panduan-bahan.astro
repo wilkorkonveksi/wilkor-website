@@ -1,0 +1,314 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { fabrics, sizeCharts } from '../data/materials';
+import { siteConfig } from '../data/siteConfig';
+
+const waSampleUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
+  'Halo Wilcore, saya tertarik untuk melihat katalog kain fisik (fabric swatches) dan konsultasi bahan seragam.'
+)}`;
+---
+
+<BaseLayout
+  title="Panduan Karakteristik Kain & Standar Size Chart | Wilcore"
+  description="Katalog lengkap jenis kain konveksi: Cotton Combed, Lacoste CVC, Drill, Taslan, Fleece, dan panduan tabel ukuran standar (Size Chart) S hingga 3XL."
+>
+  <!-- Header Banner -->
+  <section class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider border border-orange-500/30">
+        Edukasi &amp; Referensi Material
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+        Panduan Karakteristik Bahan Kain &amp; Standar Size Chart
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        Pahami karakteristik gramasi, komposisi serat, dan sirkulasi udara setiap jenis kain agar seragam tim Anda tepat guna, nyaman dipakai seharian, dan awet bertahun-tahun.
+      </p>
+
+      <!-- Quick Nav Buttons -->
+      <div class="pt-6 flex flex-wrap justify-center gap-3">
+        <a href="#kain-kaos" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-orange-600 text-slate-200 transition-colors">
+          Bahan Kaos
+        </a>
+        <a href="#kain-polo" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-orange-600 text-slate-200 transition-colors">
+          Bahan Polo
+        </a>
+        <a href="#kain-kemeja" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-orange-600 text-slate-200 transition-colors">
+          Bahan Kemeja &amp; Wearpack
+        </a>
+        <a href="#kain-jaket" class="px-4 py-2 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-orange-600 text-slate-200 transition-colors">
+          Bahan Jaket &amp; Outerwear
+        </a>
+        <a href="#size-chart" class="px-4 py-2 rounded-lg text-xs font-bold bg-orange-600 hover:bg-orange-500 text-white transition-colors">
+          Tabel Size Chart (S-3XL)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fabric Guide Sections -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+      
+      <!-- 1. Kain Kaos -->
+      <div id="kain-kaos" class="scroll-mt-28 space-y-8">
+        <div class="border-b border-slate-200 pb-4">
+          <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Kategori Kaos Oblong &amp; Event</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Bahan Kain Kaos (Cotton Combed, Bamboo &amp; PE)
+          </h2>
+          <p class="text-sm text-slate-600 mt-1">
+            Pilihan kain rajut katun murni berkualitas untuk kaos distro, merchandise gathering, dan seragam kasual.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            fabrics.filter((f) => f.category === 'kaos').map((fabric) => (
+              <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between space-y-4">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900">{fabric.name}</h3>
+                  <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+                    <p><strong class="text-slate-800">Komposisi:</strong> {fabric.composition}</p>
+                    <p><strong class="text-slate-800">Gramasi:</strong> {fabric.grammage}</p>
+                    <p><strong class="text-slate-800">Sirkulasi:</strong> {fabric.breathability}</p>
+                    <p><strong class="text-slate-800">Tekstur:</strong> {fabric.handfeel}</p>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-slate-200 text-xs">
+                  <p class="font-bold text-emerald-700">Kelebihan Utama:</p>
+                  <ul class="mt-1 space-y-1 text-slate-600 list-disc list-inside">
+                    {fabric.pros.map((pro) => (
+                      <li>{pro}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- 2. Kain Polo -->
+      <div id="kain-polo" class="scroll-mt-28 space-y-8">
+        <div class="border-b border-slate-200 pb-4">
+          <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Kategori Polo Shirt</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Bahan Kain Lacoste &amp; Pique (Polo Wangki)
+          </h2>
+          <p class="text-sm text-slate-600 mt-1">
+            Rajutan bermotif sarang lebah (honeycomb) yang kokoh, berwibawa, dan elegan untuk seragam kantor semi-formal.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {
+            fabrics.filter((f) => f.category === 'polo').map((fabric) => (
+              <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between space-y-4">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900">{fabric.name}</h3>
+                  <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+                    <p><strong class="text-slate-800">Komposisi:</strong> {fabric.composition}</p>
+                    <p><strong class="text-slate-800">Gramasi:</strong> {fabric.grammage}</p>
+                    <p><strong class="text-slate-800">Tekstur:</strong> {fabric.handfeel}</p>
+                    <p><strong class="text-slate-800">Rekomendasi:</strong> {fabric.recommendedUse}</p>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-slate-200 text-xs">
+                  <p class="font-bold text-emerald-700">Kelebihan:</p>
+                  <ul class="mt-1 space-y-1 text-slate-600 list-disc list-inside">
+                    {fabric.pros.map((pro) => (
+                      <li>{pro}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- 3. Kain Kemeja & Wearpack -->
+      <div id="kain-kemeja" class="scroll-mt-28 space-y-8">
+        <div class="border-b border-slate-200 pb-4">
+          <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Kategori Kemeja PDH/PDL &amp; Safety</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Bahan Kain Drill, Tropical &amp; Ripstop
+          </h2>
+          <p class="text-sm text-slate-600 mt-1">
+            Kain tenun pintalan diagonal berserat tebal dan kuat, dirancang tahan gesekan keras serta cuaca ekstrem.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            fabrics.filter((f) => f.category === 'kemeja').map((fabric) => (
+              <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between space-y-4">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900">{fabric.name}</h3>
+                  <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+                    <p><strong class="text-slate-800">Komposisi:</strong> {fabric.composition}</p>
+                    <p><strong class="text-slate-800">Gramasi:</strong> {fabric.grammage}</p>
+                    <p><strong class="text-slate-800">Ketahanan:</strong> {fabric.durability}</p>
+                    <p><strong class="text-slate-800">Tekstur:</strong> {fabric.handfeel}</p>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-slate-200 text-xs">
+                  <p class="font-bold text-emerald-700">Kelebihan:</p>
+                  <ul class="mt-1 space-y-1 text-slate-600 list-disc list-inside">
+                    {fabric.pros.map((pro) => (
+                      <li>{pro}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- 4. Kain Jaket -->
+      <div id="kain-jaket" class="scroll-mt-28 space-y-8">
+        <div class="border-b border-slate-200 pb-4">
+          <span class="text-xs font-bold text-orange-600 uppercase tracking-wider">Kategori Outerwear &amp; Jaket</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Bahan Fleece, Taslan &amp; Baby Terry
+          </h2>
+          <p class="text-sm text-slate-600 mt-1">
+            Pilihan bahan pelindung tubuh dari angin kencang (windproof), gerimis ringan (water-repellent), serta penahan suhu dingin.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {
+            fabrics.filter((f) => f.category === 'jaket').map((fabric) => (
+              <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-slate-300 shadow-sm flex flex-col justify-between space-y-4">
+                <div>
+                  <h3 class="text-lg font-bold text-slate-900">{fabric.name}</h3>
+                  <div class="mt-2 space-y-1.5 text-xs text-slate-600">
+                    <p><strong class="text-slate-800">Komposisi:</strong> {fabric.composition}</p>
+                    <p><strong class="text-slate-800">Gramasi:</strong> {fabric.grammage}</p>
+                    <p><strong class="text-slate-800">Sifat:</strong> {fabric.handfeel}</p>
+                    <p><strong class="text-slate-800">Rekomendasi:</strong> {fabric.recommendedUse}</p>
+                  </div>
+                </div>
+
+                <div class="pt-3 border-t border-slate-200 text-xs">
+                  <p class="font-bold text-emerald-700">Kelebihan:</p>
+                  <ul class="mt-1 space-y-1 text-slate-600 list-disc list-inside">
+                    {fabric.pros.map((pro) => (
+                      <li>{pro}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Size Chart Tables Section -->
+  <section id="size-chart" class="py-16 sm:py-24 bg-slate-900 text-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-500/20 text-orange-400 uppercase tracking-wider border border-orange-500/30">
+          Standar Ukuran Standar Nasional Indonesia
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Tabel Size Chart Standar (S - 3XL)
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          Pola ukuran kami telah disesuaikan dengan postur tubuh orang Indonesia, dengan toleransi susut jahit ±1 – 2 cm.
+        </p>
+      </div>
+
+      <!-- Render Each Size Chart Table -->
+      <div class="space-y-12">
+        {
+          sizeCharts.map((chart) => (
+            <div class="bg-slate-800/80 rounded-2xl border border-slate-700/80 overflow-hidden shadow-xl">
+              <div class="p-6 bg-slate-800 border-b border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                  <h3 class="text-xl font-bold text-white">{chart.title}</h3>
+                  <p class="text-xs text-slate-400 mt-0.5">{chart.description}</p>
+                </div>
+                <span class="px-3 py-1 rounded-md text-xs font-semibold bg-slate-900 text-orange-400 border border-slate-700">
+                  Toleransi: {chart.tolerance}
+                </span>
+              </div>
+
+              <!-- Responsive Table Container -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-slate-300">
+                  <thead class="bg-slate-950/60 text-xs uppercase font-bold text-slate-400 tracking-wider border-b border-slate-700">
+                    <tr>
+                      {chart.columns.map((col) => (
+                        <th class="px-6 py-4">
+                          {col.label} {col.unit ? `(${col.unit})` : ''}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-700/60">
+                    {chart.rows.map((row) => (
+                      <tr class="hover:bg-slate-700/40 transition-colors">
+                        <td class="px-6 py-4 font-bold text-white text-base">
+                          {row.size}
+                        </td>
+                        <td class="px-6 py-4 font-medium">
+                          {row.chestWidth} cm
+                        </td>
+                        <td class="px-6 py-4 font-medium">
+                          {row.bodyLength} cm
+                        </td>
+                        {row.shoulderWidth !== undefined && (
+                          <td class="px-6 py-4">
+                            {row.shoulderWidth} cm
+                          </td>
+                        )}
+                        {row.sleeveLength !== undefined && (
+                          <td class="px-6 py-4">
+                            {row.sleeveLength} cm
+                          </td>
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Measurement Tips & Sample Box -->
+      <div class="p-8 rounded-2xl bg-slate-800 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2">
+          <h3 class="text-lg font-bold text-white">Butuh Swatch Sample Kain Fisik untuk Presentasi Tender?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
+            Kami siap mengirimkan katalog kain fisik asli (Drill, Lacoste, Combed dengan aneka nomor warna) langsung ke alamat kantor Anda agar manajemen dapat memegang langsung kualitasnya.
+          </p>
+        </div>
+        <a
+          href={waSampleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg transition-all"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+          </svg>
+          <span>Request Sample Fisik via WA</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

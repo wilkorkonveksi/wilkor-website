@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { portfolioItems } from '../data/portfolio';
+import { siteConfig } from '../data/siteConfig';
+
+const categories = [
+  { key: 'all', label: 'Semua Produk' },
+  { key: 'kemeja', label: 'Kemeja PDH / PDL' },
+  { key: 'polo', label: 'Polo Shirt' },
+  { key: 'kaos', label: 'Kaos Event & Sablon' },
+  { key: 'jaket', label: 'Jaket & Hoodie' },
+  { key: 'wearpack', label: 'Wearpack Safety' },
+];
+---
+
+<BaseLayout
+  title="Galeri Portofolio Produksi Konveksi & Garment | Wilcore"
+  description="Lihat hasil produksi seragam Wilcore untuk berbagai perusahaan, BUMN, instansi pemerintah, dan komunitas. Kualitas jahitan garment ekspor terpercaya."
+>
+  <!-- Header Banner -->
+  <section class="bg-slate-900 text-white py-16 sm:py-20 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider border border-orange-500/30">
+        Portofolio Resmi Wilcore
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+        Galeri Portofolio Hasil Produksi Konveksi &amp; Garment
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        Jelajahi rekam jejak ribuan helai seragam yang telah kami produksi secara presisi untuk korporasi multinasional, kementerian, BUMN, perbankan, dan manufaktur berat.
+      </p>
+
+      <!-- Category Filter Buttons (Vanilla JS Controlled) -->
+      <div class="pt-8 flex flex-wrap justify-center gap-2" id="filter-container">
+        {
+          categories.map((cat, idx) => (
+            <button
+              type="button"
+              data-filter={cat.key}
+              class:list={[
+                'filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150',
+                idx === 0
+                  ? 'bg-orange-600 text-white shadow-md'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700',
+              ]}
+            >
+              {cat.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Grid Section -->
+  <section class="py-16 sm:py-24 bg-slate-50 min-h-[600px]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Counter indicator -->
+      <div class="flex items-center justify-between pb-6 border-b border-slate-200 text-xs text-slate-500">
+        <span>Menampilkan <strong id="visible-count" class="text-slate-900">{portfolioItems.length}</strong> proyek produksi</span>
+        <span>Standar QC Garment 3-Tahap</span>
+      </div>
+
+      <!-- Grid of Items -->
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+        {
+          portfolioItems.map((item) => {
+            const waInquiryUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
+              `Halo Wilcore, saya tertarik untuk membuat seragam dengan model dan spesifikasi seperti proyek: "${item.title}". Mohon info estimasi biayanya.`
+            )}`;
+
+            return (
+              <article
+                data-category={item.category}
+                class="portfolio-item bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              >
+                <!-- Image Container -->
+                <div>
+                  <div class="aspect-[16/10] overflow-hidden bg-slate-900 relative">
+                    <img
+                      src={item.image}
+                      alt={`${item.title} - Portofolio Wilcore Garment`}
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div class="absolute top-3 left-3">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-bold bg-slate-900/90 text-white backdrop-blur-sm border border-slate-700 uppercase">
+                        {item.categoryLabel}
+                      </span>
+                    </div>
+                    <div class="absolute bottom-3 right-3">
+                      <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-600 text-white">
+                        {item.quantity}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Details -->
+                  <div class="p-6 space-y-3">
+                    <div class="flex items-center justify-between text-xs text-slate-500">
+                      <span class="font-medium">Klien: <strong class="text-slate-800">{item.client}</strong></span>
+                      <span>Tahun {item.year}</span>
+                    </div>
+
+                    <h2 class="text-lg font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                      {item.title}
+                    </h2>
+
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    <div class="pt-2 text-xs text-slate-500 border-t border-slate-100">
+                      <span>Bahan: <strong class="text-slate-700 font-semibold">{item.material}</strong></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer Action -->
+                <div class="px-6 pb-6 pt-2">
+                  <a
+                    href={waInquiryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 transition-all duration-200"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+                    </svg>
+                    <span>Pesan Model Serupa</span>
+                  </a>
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Client Logo Trust Bar -->
+  <section class="py-16 bg-white border-t border-slate-200 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400">
+        Dipercaya Oleh 650+ Korporat, BUMN &amp; Organisasi di Seluruh Indonesia
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-slate-400 font-extrabold text-sm sm:text-base">
+        <span class="p-3 bg-slate-50 rounded-xl border border-slate-200">PERBANKAN NASIONAL</span>
+        <span class="p-3 bg-slate-50 rounded-xl border border-slate-200">BUMN ENERGI &amp; LOGISTIK</span>
+        <span class="p-3 bg-slate-50 rounded-xl border border-slate-200">KONTRAKTOR MINING &amp; K3</span>
+        <span class="p-3 bg-slate-50 rounded-xl border border-slate-200">DEALER OTOMOTIF NASIONAL</span>
+        <span class="p-3 bg-slate-50 rounded-xl border border-slate-200">UNIVERSITAS &amp; FAKULTAS</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  // Pure Vanilla JS Filter (Zero Bloatware)
+  (function () {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.portfolio-item');
+    const countEl = document.getElementById('visible-count');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Toggle active button styles
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-orange-600', 'text-white', 'shadow-md');
+          b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+        });
+        btn.classList.add('bg-orange-600', 'text-white', 'shadow-md');
+        btn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+
+        let visibleCount = 0;
+
+        items.forEach((item) => {
+          const itemCat = item.getAttribute('data-category');
+          if (filter === 'all' || itemCat === filter) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        if (countEl) {
+          countEl.textContent = visibleCount.toString();
+        }
+      });
+    });
+  })();
+</script>

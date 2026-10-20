@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="jacketGrad" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="jacketFabric" x1="200" y1="80" x2="400" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#064E3B"/>
+      <stop offset="1" stop-color="#022C22"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#jacketGrad)"/>
+  <path d="M0 50h600M0 100h600M0 150h600M0 200h600M0 250h600M0 300h600M0 350h600" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <path d="M50 0v400M100 0v400M150 0v400M200 0v400M250 0v400M300 0v400M350 0v400M400 0v400M450 0v400M500 0v400M550 0v400" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  
+  <!-- Bomber Jacket Body -->
+  <g transform="translate(60, 25)">
+    <!-- Main Shell -->
+    <path d="M165 95 L240 95 L315 95 L395 140 L355 195 L325 155 L325 315 L155 315 L155 155 L125 195 L85 140 Z" fill="url(#jacketFabric)" stroke="#34D399" stroke-width="2"/>
+    <!-- Bomber Rib Collar -->
+    <path d="M190 95 C215 115 265 115 290 95 L275 80 C250 95 230 95 205 80 Z" fill="#047857" stroke="#6EE7B7" stroke-width="1.5"/>
+    <!-- Front Metal Zipper (YKK style) -->
+    <line x1="240" y1="108" x2="240" y2="315" stroke="#E2E8F0" stroke-width="4"/>
+    <rect x="237" y="140" width="6" height="12" rx="2" fill="#F59E0B"/>
+    <!-- Slash Pockets -->
+    <line x1="180" y1="230" x2="210" y2="265" stroke="#34D399" stroke-width="4" stroke-linecap="round"/>
+    <line x1="300" y1="230" x2="270" y2="265" stroke="#34D399" stroke-width="4" stroke-linecap="round"/>
+    <!-- Arm Pocket (MA-1 style) -->
+    <rect x="95" y="160" width="22" height="30" rx="3" fill="#065F46" stroke="#34D399" stroke-width="1.5"/>
+    <line x1="106" y1="160" x2="106" y2="190" stroke="#F59E0B" stroke-width="2"/>
+    <!-- Rib Waistband -->
+    <rect x="155" y="305" width="170" height="18" fill="#047857" stroke="#6EE7B7" stroke-width="1"/>
+  </g>
+  <g transform="translate(420, 70)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F8FAFC" font-family="system-ui" font-size="13" font-weight="bold">Taslan Milky / Fleece</text>
+  </g>
+  <g transform="translate(420, 130)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#34D399" font-family="system-ui" font-size="13" font-weight="bold">Zipper Besi YKK</text>
+  </g>
+  <g transform="translate(420, 190)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F59E0B" font-family="system-ui" font-size="13" font-weight="bold">Furing Dormeuil Adem</text>
+  </g>
+  <text x="40" y="360" fill="#94A3B8" font-family="system-ui" font-size="14" font-weight="600">WILCORE GARMENT • JAKET BOMBER, HOODIE &amp; PARKA</text>
+</svg>

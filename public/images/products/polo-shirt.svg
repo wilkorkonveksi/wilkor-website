@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="poloGrad" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="poloFabric" x1="200" y1="80" x2="400" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0284C7"/>
+      <stop offset="1" stop-color="#0369A1"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#poloGrad)"/>
+  <path d="M0 50h600M0 100h600M0 150h600M0 200h600M0 250h600M0 300h600M0 350h600" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <path d="M50 0v400M100 0v400M150 0v400M200 0v400M250 0v400M300 0v400M350 0v400M400 0v400M450 0v400M500 0v400M550 0v400" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  
+  <!-- Polo Shirt Shape -->
+  <g transform="translate(60, 25)">
+    <path d="M165 85 L240 85 L315 85 L385 135 L345 170 L315 130 L315 315 L165 315 L165 130 L135 170 L95 135 Z" fill="url(#poloFabric)" stroke="#38BDF8" stroke-width="2"/>
+    <!-- Ribbed Flat Knit Collar -->
+    <path d="M205 85 L240 125 L215 135 L180 90 Z" fill="#0C4A6E" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M275 85 L240 125 L265 135 L300 90 Z" fill="#0C4A6E" stroke="#38BDF8" stroke-width="1.5"/>
+    <!-- Button Placket -->
+    <rect x="233" y="125" width="14" height="65" fill="#075985" stroke="#38BDF8" stroke-width="1"/>
+    <circle cx="240" cy="140" r="3" fill="#FFFFFF"/>
+    <circle cx="240" cy="165" r="3" fill="#FFFFFF"/>
+    <!-- Embroidery Logo Chest -->
+    <circle cx="205" cy="165" r="10" fill="#EA580C" opacity="0.9"/>
+    <path d="M200 165 L205 160 L210 165 L205 170 Z" fill="#FFFFFF"/>
+    <!-- Sleeve Rib Cuff -->
+    <line x1="100" y1="130" x2="140" y2="165" stroke="#0C4A6E" stroke-width="5"/>
+    <line x1="380" y1="130" x2="340" y2="165" stroke="#0C4A6E" stroke-width="5"/>
+  </g>
+  <!-- Badges -->
+  <g transform="translate(420, 70)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F8FAFC" font-family="system-ui" font-size="13" font-weight="bold">Lacoste CVC 24s</text>
+  </g>
+  <g transform="translate(420, 130)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#38BDF8" font-family="system-ui" font-size="13" font-weight="bold">Kerah Rajut Flat Knit</text>
+  </g>
+  <g transform="translate(420, 190)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#10B981" font-family="system-ui" font-size="13" font-weight="bold">Bordir Komputer</text>
+  </g>
+  <text x="40" y="360" fill="#94A3B8" font-family="system-ui" font-size="14" font-weight="600">WILCORE GARMENT • POLO SHIRT WANGKI BORDIR</text>
+</svg>

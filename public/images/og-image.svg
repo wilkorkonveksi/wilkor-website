@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="ogGrad" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.6" stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogGrad)"/>
+  <!-- Border -->
+  <rect x="30" y="30" width="1140" height="570" rx="20" stroke="#334155" stroke-width="2"/>
+  <!-- Accent badge -->
+  <rect x="80" y="90" width="220" height="40" rx="20" fill="#EA580C"/>
+  <text x="110" y="115" fill="#FFFFFF" font-family="system-ui" font-size="16" font-weight="bold">PABRIK &amp; KONVEKSI B2B</text>
+  <!-- Heading -->
+  <text x="80" y="210" fill="#FFFFFF" font-family="system-ui" font-size="52" font-weight="800">WILCORE KONVEKSI</text>
+  <text x="80" y="275" fill="#38BDF8" font-family="system-ui" font-size="34" font-weight="700">Vendor Seragam Kerja &amp; Garment Terpercaya</text>
+  <text x="80" y="340" fill="#94A3B8" font-family="system-ui" font-size="22">Kemeja PDH/PDL • Kaos Polo • Jaket • Wearpack Safety • Kaos Event</text>
+  <!-- Metrics -->
+  <g transform="translate(80, 440)">
+    <rect width="220" height="90" rx="12" fill="#1E293B" stroke="#334155"/>
+    <text x="24" y="44" fill="#EA580C" font-family="system-ui" font-size="30" font-weight="bold">150.000+</text>
+    <text x="24" y="70" fill="#94A3B8" font-family="system-ui" font-size="14">Pcs Kapasitas / Bulan</text>
+  </g>
+  <g transform="translate(320, 440)">
+    <rect width="220" height="90" rx="12" fill="#1E293B" stroke="#334155"/>
+    <text x="24" y="44" fill="#10B981" font-family="system-ui" font-size="30" font-weight="bold">99.4%</text>
+    <text x="24" y="70" fill="#94A3B8" font-family="system-ui" font-size="14">On-Time SLA Delivery</text>
+  </g>
+  <g transform="translate(560, 440)">
+    <rect width="220" height="90" rx="12" fill="#1E293B" stroke="#334155"/>
+    <text x="24" y="44" fill="#38BDF8" font-family="system-ui" font-size="30" font-weight="bold">Garansi 100%</text>
+    <text x="24" y="70" fill="#94A3B8" font-family="system-ui" font-size="14">Jaminan Mutu Jahitan</text>
+  </g>
+  <text x="1100" y="520" fill="#EA580C" font-family="system-ui" font-size="24" font-weight="bold" text-anchor="end">https://wilcore.com</text>
+</svg>

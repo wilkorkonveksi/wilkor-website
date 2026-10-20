@@ -1,0 +1,127 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+const waHeroUrl = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(
+  'Halo Wilcore, saya ingin konsultasi pengadaan seragam instansi/perusahaan dan meminta estimasi penawaran harga.'
+)}`;
+---
+
+<section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden py-16 sm:py-24 border-b border-slate-800">
+  <!-- Subtle Industrial Pattern Background -->
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-orange-600 blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-sky-600 blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Left Column: Copywriting & High-Conversion CTAs (col-span-7) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Credibility Pill Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs font-semibold text-orange-400">
+          <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+          <span>PABRIK MANUFAKTUR &amp; VENDOR SERAGAM B2B TERVERIFIKASI</span>
+        </div>
+
+        <!-- Strict SEO H1 Tag -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Jasa Konveksi &amp; Vendor Seragam Terpercaya <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Kualitas Garment</span>
+        </h1>
+
+        <!-- Persuasive Sub-Headline -->
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+          Mitra resmi produksi kemeja PDH/PDL, polo shirt, kaos event, jaket korporat, dan wearpack safety. Didukung mesin jahit &amp; bordir komputer presisi, kapasitas <strong class="text-white font-semibold">150.000 pcs/bulan</strong>, kepastian pengiriman tepat waktu, serta garansi retur 100%.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <!-- WhatsApp Primary CTA -->
+          <a
+            href={waHeroUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-sm font-bold bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white shadow-xl shadow-emerald-950/50 transition-all duration-200 transform hover:-translate-y-0.5"
+          >
+            <!-- WhatsApp SVG -->
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+            </svg>
+            <span>Konsultasi via WhatsApp (Gratis)</span>
+          </a>
+
+          <!-- Secondary CTA: Portofolio -->
+          <a
+            href="/portofolio"
+            class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-sm font-bold bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-all duration-200"
+          >
+            <span>Lihat Hasil Produksi</span>
+            <svg class="w-4 h-4 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust Badges List -->
+        <div class="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-400 border-t border-slate-800/80">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Free Sample Fisik (S&amp;K)</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Faktur Pajak &amp; Legalitas SPK</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Garansi Retur Cacat Produksi</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: High-Performance Hero Illustration (col-span-5) -->
+      <div class="lg:col-span-5 relative flex justify-center">
+        <div class="relative w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900 shadow-2xl">
+          <img
+            src="/images/hero-factory.svg"
+            alt="Pabrik Konveksi dan Manufaktur Seragam Wilcore Garment"
+            width="800"
+            height="600"
+            fetchpriority="high"
+            loading="eager"
+            class="w-full h-auto object-cover transform hover:scale-102 transition-transform duration-500"
+          />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Highlight Statistics Bar -->
+    <div class="mt-16 pt-10 border-t border-slate-800 grid grid-cols-2 md:grid-cols-4 gap-6">
+      {
+        siteConfig.stats.map((stat) => (
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+            <p class="text-2xl sm:text-3xl font-black text-orange-500 tracking-tight">
+              {stat.value}
+            </p>
+            <p class="text-sm font-bold text-white mt-0.5">
+              {stat.label}
+            </p>
+            <p class="text-xs text-slate-400 mt-1 line-clamp-2">
+              {stat.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

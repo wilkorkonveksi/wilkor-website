@@ -1,0 +1,218 @@
+# ==============================================================================
+# Decap CMS Configuration - Wilcore Company Profile & B2B Garment Manufaktur
+# Domain: https://wilcore.com
+# ==============================================================================
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Aktifkan proxy lokal untuk pengembangan di localhost (npx decap-server)
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+logo_url: "/favicon.svg"
+site_url: "https://wilcore.com"
+
+# Kustomisasi UI Admin Decap CMS
+display_url: "https://wilcore.com"
+locale: "id"
+
+collections:
+  # ============================================================================
+  # 1. MANAJEMEN KLIEN & PARTNERS (OUR PARTNERS MARQUEE)
+  # ============================================================================
+  - name: "partners_management"
+    label: "Manajemen Klien & Partners"
+    delete: false
+    files:
+      - name: "partners_data"
+        label: "Daftar Mitra & Logo Klien"
+        file: "src/data/partners.json"
+        format: "json"
+        fields:
+          - label: "Daftar Klien & Partner"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.sector}}"
+            fields:
+              - label: "Nama Perusahaan / Instansi"
+                name: "title"
+                widget: "string"
+                hint: "Contoh: Bank Mandiri (Persero), Pertamina Patra Niaga, PT PLN"
+              - label: "Slug / ID Unik"
+                name: "slug"
+                widget: "string"
+                hint: "Gunakan huruf kecil tanpa spasi (contoh: bank-mandiri, pertamina)"
+              - label: "Sektor Industri"
+                name: "sector"
+                widget: "string"
+                hint: "Contoh: Perbankan BUMN, Energi & Logistik, Manufaktur Otomotif, Pertambangan K3"
+              - label: "Logo Klien (PNG / SVG)"
+                name: "logo"
+                widget: "image"
+                choose_url: false
+                hint: "Upload file logo klien berlatar transparan (format SVG atau PNG disarankan)"
+
+  # ============================================================================
+  # 2. MANAJEMEN BANNER & POPUP PROMO WHATSAPP
+  # ============================================================================
+  - name: "promo_management"
+    label: "Manajemen Popup Promo"
+    delete: false
+    files:
+      - name: "popup_promo_data"
+        label: "Konten Welcome Popup Promo"
+        file: "src/data/promo.json"
+        format: "json"
+        fields:
+          - label: "Status Tampilkan Popup"
+            name: "active"
+            widget: "boolean"
+            default: true
+            hint: "Nyalakan (True) agar popup muncul otomatis saat pengunjung membuka website"
+          - label: "Label Badge Atas"
+            name: "badge"
+            widget: "string"
+            default: "PENAWARAN EKSKLUSIF BULAN INI"
+            hint: "Teks kecil di atas judul promo"
+          - label: "Judul Utama Promo"
+            name: "title"
+            widget: "string"
+            hint: "Contoh: Promo Pengadaan Seragam Kantor & Kaos Custom"
+          - label: "Deskripsi Penjelasan Singkat"
+            name: "description"
+            widget: "text"
+            hint: "Penjelasan ringkas promo penawaran konveksi"
+          - label: "Daftar Poin Diskon & Keuntungan"
+            name: "perks"
+            widget: "list"
+            field:
+              label: "Keuntungan / Fasilitas"
+              name: "perk"
+              widget: "string"
+            hint: "Poin-poin checklist penawaran spesial (misal: Diskon 10%, Free Sampel, Free Ongkir)"
+          - label: "Teks Tombol WhatsApp Utama"
+            name: "ctaText"
+            widget: "string"
+            default: "Klaim Promo via WhatsApp Sekarang"
+          - label: "Draft Pesan Otomatis WhatsApp"
+            name: "whatsappMessage"
+            widget: "text"
+            hint: "Pesan yang otomatis tertulis saat pengunjung mengklik tombol WhatsApp"
+          - label: "Teks Tombol Sekunder / Tutup"
+            name: "secondaryText"
+            widget: "string"
+            default: "Lihat Portofolio Dulu"
+
+  # ============================================================================
+  # 3. MANAJEMEN PORTOFOLIO & HASIL PRODUKSI
+  # ============================================================================
+  - name: "portfolio_management"
+    label: "Manajemen Portofolio"
+    delete: false
+    files:
+      - name: "portfolio_data"
+        label: "Galeri Hasil Produksi Seragam"
+        file: "src/data/portfolio.json"
+        format: "json"
+        fields:
+          - label: "Daftar Hasil Produksi"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.client}})"
+            fields:
+              - label: "ID Proyek (Slug)"
+                name: "id"
+                widget: "string"
+                hint: "Contoh: seragam-pdh-bank-mandiri"
+              - label: "Judul Proyek Produksi"
+                name: "title"
+                widget: "string"
+                hint: "Contoh: Kemeja PDH Dinas Staf & Frontliner Regional"
+              - label: "Nama Klien / Instansi Pemesan"
+                name: "client"
+                widget: "string"
+                hint: "Contoh: Perbankan Nasional BUMN, PT Telkom Indonesia"
+              - label: "Kategori Produk"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Kemeja PDH / PDL", value: "kemeja" }
+                  - { label: "Kaos Polo Bordir", value: "polo" }
+                  - { label: "Kaos Event & Sablon", value: "kaos" }
+                  - { label: "Jaket, Bomber & Hoodie", value: "jaket" }
+                  - { label: "Wearpack Safety K3", value: "wearpack" }
+              - label: "Label Tampilan Kategori"
+                name: "categoryLabel"
+                widget: "string"
+                hint: "Contoh: Kemeja PDH/PDL, Polo Shirt, Wearpack Safety"
+              - label: "Jenis Bahan Kain yang Digunakan"
+                name: "material"
+                widget: "string"
+                hint: "Contoh: Nagata Drill 1919 Original, Lacoste CVC 24s, Cotton Combed 24s"
+              - label: "Jumlah Pesanan"
+                name: "quantity"
+                widget: "string"
+                hint: "Contoh: 1.250 pcs, 500 pcs, 2.400 pcs"
+              - label: "Tahun Pengerjaan"
+                name: "year"
+                widget: "string"
+                hint: "Contoh: 2024, 2023"
+              - label: "Foto / Gambar Dokumentasi Produksi"
+                name: "image"
+                widget: "image"
+                choose_url: false
+                hint: "Upload foto pakaian seragam yang sudah jadi"
+              - label: "Deskripsi Spesifikasi & Jahitan"
+                name: "description"
+                widget: "text"
+                hint: "Keterangan bordir, jenis sablon, atau aksesoris kustom"
+              - label: "Tampilkan di Cuplikan Beranda (Featured)"
+                name: "featured"
+                widget: "boolean"
+                default: false
+                hint: "Jika dicentang, proyek ini akan tampil pada seksi Portofolio di halaman Home"
+
+  # ============================================================================
+  # 4. MANAJEMEN ARTIKEL BLOG SEO (MARKDOWN)
+  # ============================================================================
+  - name: "blog"
+    label: "Manajemen Artikel Blog SEO"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Judul Artikel"
+        name: "title"
+        widget: "string"
+        hint: "Gunakan kata kunci konveksi yang dicari audiens B2B"
+      - label: "Slug URL Artikel"
+        name: "slug"
+        widget: "string"
+        hint: "Contoh: perbedaan-bahan-nagata-drill-vs-american-drill"
+      - label: "Tanggal Publikasi"
+        name: "date"
+        widget: "date"
+        format: "YYYY-MM-DD"
+      - label: "Kategori Artikel"
+        name: "category"
+        widget: "select"
+        options:
+          - "Panduan Bahan"
+          - "Teknik Sablon"
+          - "Safety Garment"
+          - "Tips Seragam B2B"
+          - "Edukasi Konveksi"
+      - label: "Estimasi Waktu Baca"
+        name: "readTime"
+        widget: "string"
+        default: "5 Menit Baca"
+      - label: "Ringkasan Singkat / Excerpt"
+        name: "summary"
+        widget: "text"
+        hint: "Ringkasan isi artikel untuk meta deskripsi dan kartu cuplikan"
+      - label: "Isi Konten Artikel (Markdown)"
+        name: "body"
+        widget: "markdown"

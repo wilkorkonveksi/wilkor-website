@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="wpGrad" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="wpFabric" x1="200" y1="50" x2="400" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EA580C"/>
+      <stop offset="1" stop-color="#9A3412"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#wpGrad)"/>
+  <path d="M0 50h600M0 100h600M0 150h600M0 200h600M0 250h600M0 300h600M0 350h600" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <path d="M50 0v400M100 0v400M150 0v400M200 0v400M250 0v400M300 0v400M350 0v400M400 0v400M450 0v400M500 0v400M550 0v400" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  
+  <!-- Wearpack One Piece Silhouette -->
+  <g transform="translate(60, 20)">
+    <!-- Top & Legs -->
+    <path d="M165 70 L240 70 L315 70 L385 125 L345 160 L315 120 L315 230 L305 340 L250 340 L240 250 L230 340 L175 340 L165 230 L165 120 L135 160 L95 125 Z" fill="url(#wpFabric)" stroke="#FDBA74" stroke-width="2"/>
+    <!-- Collar -->
+    <path d="M210 70 L240 105 L270 70 Z" fill="#9A3412" stroke="#FED7AA" stroke-width="1.5"/>
+    <!-- Scotchlite High-Vis Reflective Strips (Silver/Yellow) -->
+    <!-- Chest Reflective -->
+    <rect x="165" y="150" width="150" height="12" fill="#E2E8F0" stroke="#FEF08A" stroke-width="1.5"/>
+    <!-- Arm Reflective -->
+    <line x1="105" y1="135" x2="135" y2="155" stroke="#E2E8F0" stroke-width="10"/>
+    <line x1="375" y1="135" x2="345" y2="155" stroke="#E2E8F0" stroke-width="10"/>
+    <!-- Leg Reflective -->
+    <rect x="175" y="280" width="55" height="12" fill="#E2E8F0" stroke="#FEF08A" stroke-width="1.5"/>
+    <rect x="250" y="280" width="55" height="12" fill="#E2E8F0" stroke="#FEF08A" stroke-width="1.5"/>
+    <!-- K3 Logo Badge on Right Chest -->
+    <rect x="180" y="100" width="28" height="24" rx="2" fill="#15803D"/>
+    <path d="M194 105 v14 M187 112 h14" stroke="#FFFFFF" stroke-width="2.5"/>
+  </g>
+  <g transform="translate(420, 70)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F8FAFC" font-family="system-ui" font-size="13" font-weight="bold">American / Drill K3</text>
+  </g>
+  <g transform="translate(420, 130)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#FBBF24" font-family="system-ui" font-size="13" font-weight="bold">Scotchlite 3M 5cm</text>
+  </g>
+  <g transform="translate(420, 190)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#10B981" font-family="system-ui" font-size="13" font-weight="bold">Bartack High-Stress</text>
+  </g>
+  <text x="40" y="360" fill="#94A3B8" font-family="system-ui" font-size="14" font-weight="600">WILCORE GARMENT • WEARPACK SAFETY &amp; COVERALL K3</text>
+</svg>

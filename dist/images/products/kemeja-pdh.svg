@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" fill="none">
+  <rect width="600" height="400" fill="#0F172A"/>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E293B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="200" y1="80" x2="400" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#172554"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#g1)"/>
+  <!-- Blueprint grid lines -->
+  <path d="M0 50h600M0 100h600M0 150h600M0 200h600M0 250h600M0 300h600M0 350h600" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  <path d="M50 0v400M100 0v400M150 0v400M200 0v400M250 0v400M300 0v400M350 0v400M400 0v400M450 0v400M500 0v400M550 0v400" stroke="#334155" stroke-width="0.5" stroke-dasharray="4 4"/>
+  
+  <!-- Kemeja Silhouette -->
+  <g transform="translate(60, 20)">
+    <!-- Collar & Shoulders -->
+    <path d="M160 80 L240 80 L320 80 L390 140 L340 180 L310 130 L310 320 L170 320 L170 130 L140 180 L90 140 Z" fill="url(#shirt)" stroke="#38BDF8" stroke-width="2"/>
+    <!-- Collar Triangles -->
+    <path d="M210 80 L240 135 L225 140 L195 85 Z" fill="#2563EB" stroke="#60A5FA" stroke-width="1.5"/>
+    <path d="M270 80 L240 135 L255 140 L285 85 Z" fill="#2563EB" stroke="#60A5FA" stroke-width="1.5"/>
+    <!-- Button Placket -->
+    <rect x="233" y="135" width="14" height="185" fill="#1E40AF" stroke="#60A5FA" stroke-width="1"/>
+    <circle cx="240" cy="155" r="3" fill="#FFFFFF"/>
+    <circle cx="240" cy="195" r="3" fill="#FFFFFF"/>
+    <circle cx="240" cy="235" r="3" fill="#FFFFFF"/>
+    <circle cx="240" cy="275" r="3" fill="#FFFFFF"/>
+    <!-- Pockets -->
+    <rect x="185" y="160" width="36" height="42" rx="3" fill="#1E3A8A" stroke="#60A5FA" stroke-width="1.5"/>
+    <path d="M185 160 L203 172 L221 160" stroke="#60A5FA" stroke-width="1.5" fill="none"/>
+    <rect x="259" y="160" width="36" height="42" rx="3" fill="#1E3A8A" stroke="#60A5FA" stroke-width="1.5"/>
+    <path d="M259 160 L277 172 L295 160" stroke="#60A5FA" stroke-width="1.5" fill="none"/>
+    <!-- Epaulet / Skoder Bahu -->
+    <path d="M165 95 L190 85" stroke="#EA580C" stroke-width="3" stroke-linecap="round"/>
+    <path d="M315 95 L290 85" stroke="#EA580C" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- Spec Badges -->
+  <g transform="translate(420, 70)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#F8FAFC" font-family="system-ui" font-size="13" font-weight="bold">Nagata Drill 1919</text>
+  </g>
+  <g transform="translate(420, 130)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#38BDF8" font-family="system-ui" font-size="13" font-weight="bold">Bordir Barudan 12-J</text>
+  </g>
+  <g transform="translate(420, 190)">
+    <rect width="150" height="44" rx="8" fill="#1E293B" stroke="#334155"/>
+    <text x="16" y="27" fill="#10B981" font-family="system-ui" font-size="13" font-weight="bold">Double-Stitch 3mm</text>
+  </g>
+  <text x="40" y="360" fill="#94A3B8" font-family="system-ui" font-size="14" font-weight="600">WILCORE GARMENT • KEMEJA PDH &amp; PDL B2B SPEC</text>
+</svg>

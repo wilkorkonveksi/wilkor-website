@@ -1,0 +1,145 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string | URL;
+  ogImage?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+  type?: 'website' | 'article';
+}
+
+const {
+  title = `${siteConfig.name} - ${siteConfig.tagline}`,
+  description = siteConfig.description,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://wilcore.com').href,
+  ogImage = new URL('/images/og-image.svg', Astro.site || 'https://wilcore.com').href,
+  schema,
+  type = 'website',
+} = Astro.props;
+
+// Ensure full canonical URL string
+const canonicalHref = typeof canonicalURL === 'string' ? canonicalURL : canonicalURL.href;
+const ogImageHref = ogImage.startsWith('http')
+  ? ogImage
+  : new URL(ogImage, Astro.site || 'https://wilcore.com').href;
+
+// Base LocalBusiness Schema (Garment Manufacturer / Jasa Konveksi)
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': 'https://wilcore.com/#organization',
+  name: siteConfig.name,
+  legalName: siteConfig.legalName,
+  url: siteConfig.siteUrl,
+  logo: 'https://wilcore.com/favicon.svg',
+  image: ogImageHref,
+  description: siteConfig.description,
+  telephone: siteConfig.whatsapp.number,
+  email: siteConfig.email,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.province,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: 'ID',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -6.917464,
+    longitude: 107.619123,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '17:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '08:30',
+      closes: '14:00',
+    },
+  ],
+  sameAs: [
+    siteConfig.social.instagram,
+    siteConfig.social.linkedin,
+    siteConfig.social.tiktok,
+  ],
+  areaServed: {
+    '@type': 'Country',
+    name: 'Indonesia',
+  },
+  knowsAbout: [
+    'Konveksi Seragam Kerja B2B',
+    'Kemeja PDH dan PDL',
+    'Kaos Polo Lacoste Bordir',
+    'Jaket Bomber Perusahaan',
+    'Wearpack Safety K3 Pertambangan',
+    'Kaos Event Gathering Sablon Plastisol',
+  ],
+};
+
+// Combine Schemas: LocalBusiness is included globally, plus any page-specific schemas
+const combinedSchemas = schema
+  ? Array.isArray(schema)
+    ? [localBusinessSchema, ...schema]
+    : [localBusinessSchema, schema]
+  : [localBusinessSchema];
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonicalHref} />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary SEO Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Wilcore Garment Manufaktur" />
+<meta name="theme-color" content="#0F172A" />
+
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalHref} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImageHref} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Wilcore Garment & Konveksi B2B" />
+<meta property="og:site_name" content="Wilcore" />
+<meta property="og:locale" content="id_ID" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalHref} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageHref} />
+
+<!-- Font Preconnect & Swap for Peak Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+  media="print"
+  onload="this.media='all'"
+/>
+
+<!-- Structured Data (JSON-LD) -->
+{
+  combinedSchemas.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))
+}
